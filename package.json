@@ -16,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/Romkin7/express-scrf.git"
+        "url": "git@github.com:Romkin7/secure-csrf.git"
     },
     "keywords": [
         "CSRF",
