@@ -1,5 +1,5 @@
 {
-    "name": "csrf-tokens",
+    "name": "secure-csrf",
     "version": "1.0.0",
     "description": "CSRF protection for NodeJS apps",
     "main": "dist/src/index.js",

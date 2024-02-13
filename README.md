@@ -1,6 +1,10 @@
-# CSRF Tokens
+# Secure CSRF
+`secure-csrf`
+
 CSRF protection for Node JS Applications.
 Built with TypeScript and ESM.
+
+This package is updated version of [csrf](https://www.npmjs.com/package/csrf) package. It includes types and new [uid](https://www.npmjs.com/package/uid) package is used to generate `uid/secure` secret.
 
 ## Installation
 
