@@ -15,5 +15,5 @@ function addPackageJsonFiles(
     writeFileSync(filePathCommonjs, JSON.stringify({ type: 'commonjs' }));
 }
 
-addPackageJsonFiles('./lib/esm/package.json', './lib/commonjs/package.json');
+addPackageJsonFiles('./dist/esm/package.json', './dist/commonjs/package.json');
 writePackageJSON();
