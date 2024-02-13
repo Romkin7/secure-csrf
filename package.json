@@ -12,7 +12,8 @@
         "prettier:check": "prettier --check \"**/*.ts*\"",
         "prettier:fix": "prettier --write \"**/*.ts*\"",
         "lint:tsc": "tsc --noemit",
-        "lint": "npm run prettier:check && eslint **/*.ts --ext .ts --no-ignore && npm run lint:tsc"
+        "lint": "npm run prettier:check && eslint **/*.ts --ext .ts --no-ignore && npm run lint:tsc",
+        "add-package-json-files": "ts-node ./scripts/addPackageJsonFiles.ts"
     },
     "repository": {
         "type": "git",
