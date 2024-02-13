@@ -10,7 +10,7 @@ const packageJSON = require('../package.json');
 function writePackageJSON(): void {
     delete packageJSON.devDependencies;
     delete packageJSON.scripts;
-    writeFileSync(`./lib/package.json`, JSON.stringify(packageJSON));
+    writeFileSync(`./dist/package.json`, JSON.stringify(packageJSON));
 }
 
 export default writePackageJSON;
