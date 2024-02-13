@@ -2,7 +2,9 @@
     "name": "secure-csrf",
     "version": "1.0.0",
     "description": "CSRF protection for NodeJS apps",
-    "main": "dist/src/index.js",
+    "main": "commonjs/index.js",
+    "module": "esm/index.js",
+    "types": "esm/index.d.ts",
     "scripts": {
         "test": "jest",
         "test:ci": "jest --coverage",
@@ -12,7 +14,9 @@
         "prettier:check": "prettier --check \"**/*.ts*\"",
         "prettier:fix": "prettier --write \"**/*.ts*\"",
         "lint:tsc": "tsc --noemit",
-        "lint": "npm run prettier:check && eslint **/*.ts --ext .ts --no-ignore && npm run lint:tsc"
+        "lint": "npm run prettier:check && eslint **/*.ts --ext .ts --no-ignore && npm run lint:tsc",
+        "add-package-json-files": "ts-node ./scripts/addPackageJsonFiles.ts",
+        "publish": "(cd lib && npm publish --access public)"
     },
     "repository": {
         "type": "git",

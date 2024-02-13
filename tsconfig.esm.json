@@ -1,26 +1,24 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "lib": ["es2021"],
-    "jsx": "react-jsx",
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "downlevelIteration": true,
-    "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ESNext",
-    "declaration": true,
-    "outDir": "./lib/esm",
-    "rootDir": "./lib",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "skipLibCheck": true,
-    "paths": {
-      "*": ["./node_modules/@types/*"]
-    }
+      "module": "esNext",
+      "downlevelIteration": true,
+      "noImplicitAny": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "allowSyntheticDefaultImports": true,
+      "target": "esNext",
+      "declaration": true,
+      "sourceMap": true,
+      "outDir": "./dist/esm",
+      "rootDir": "./src",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "types": ["jest", "node"],
+      "paths": {
+          "*": ["./node_modules/@types/*"]
+      }
   },
   "exclude": ["./scripts", ".src"]
 }
