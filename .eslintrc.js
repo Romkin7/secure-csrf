@@ -20,4 +20,12 @@ module.exports = {
         ],
     },
     ignorePatterns: ['node_modules', 'build'],
+    overrides: [
+        {
+            files: ['tests/**/*'],
+            env: {
+                jest: true,
+            },
+        },
+    ],
 };

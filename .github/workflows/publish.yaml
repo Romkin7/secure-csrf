@@ -1,0 +1,56 @@
+# name of the workflow
+name: Build and Publish to NPM
+# When workflow is triggered
+on:
+    pull_request:
+        types: ['closed']
+        branches:
+            - main
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [18.x]
+        env:
+            CI: true
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        steps:
+            # Get code from repo
+            - name: Checkout code
+              uses: actions/checkout@v2
+            # Install NodeJS
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  registry-url: 'https://registry.npmjs.org'
+            # Run npm install
+            - name: Install dependencies
+              run: npm ci
+            # Run unit tests for all packages
+            - name: Run lint
+              run: npm run lint
+            - name: Build eclair-icons
+              run: npm run build
+           # Publish to npm if this version is not published
+            - name: Publish package on NPM 📦
+              run: |
+                  npx can-npm-publish --verbose && npm run publish || echo "Does not publish"
+                  env:
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+           # Push tag to GitHub if package.json version's tag is not tagged
+            - name: package-version
+              run:
+                  node -p -e
+                  '`PACKAGE_VERSION=${require("./package.json").version}`' >>
+                  $GITHUB_ENV
+            - name: package-version-to-git-tag
+              uses: pkgdeps/git-tag-action@v2
+              with:
+                  github_token: ${{ secrets.PUBLISH_TOKEN }}
+                  github_repo: ${{ github.repository }}
+                  version: ${{ env.PACKAGE_VERSION }}
+                  git_commit_sha: ${{ github.sha }}
+                  git_tag_prefix: 'v'
