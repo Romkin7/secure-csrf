@@ -16,7 +16,7 @@
         "lint:tsc": "tsc --noemit",
         "lint": "npm run prettier:check && eslint **/*.ts --ext .ts --no-ignore && npm run lint:tsc",
         "add-package-json-files": "ts-node ./scripts/addPackageJsonFiles.ts",
-        "publish": "(cd lib && npm publish --access public)"
+        "publish": "(cd dist && npm publish --access public)"
     },
     "repository": {
         "type": "git",
