@@ -5,6 +5,7 @@
     "main": "dist/src/index.js",
     "scripts": {
         "test": "jest",
+        "test:ci": "jest --coverage",
         "build": "tsc",
         "dev": "nodemon --watch *.ts --exec ts-node ./src/index.ts",
         "start": "node dist/src/index.js",
