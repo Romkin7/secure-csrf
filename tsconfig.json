@@ -18,4 +18,5 @@
         },
     },
     "include": ["src/**/*"],
+    "exclude": ["src/tests/*.test.ts"]
 }

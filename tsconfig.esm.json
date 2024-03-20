@@ -20,5 +20,5 @@
           "*": ["./node_modules/@types/*"]
       }
   },
-  "exclude": ["./scripts", ".src"]
+  "exclude": ["./scripts", "./src/tests", ".src"]
 }
