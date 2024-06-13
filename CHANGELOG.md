@@ -1,5 +1,7 @@
 v1.0.2
 
+New patch release contains:
+
 - Removes express dependency
 
 v1.0.1
