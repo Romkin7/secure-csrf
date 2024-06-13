@@ -1,3 +1,7 @@
+v1.0.2
+
+- Removes express dependency
+
 v1.0.1
 
 - Removes tests from npm package
