@@ -1,6 +1,6 @@
 {
     "name": "secure-csrf",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "CSRF protection for NodeJS apps",
     "main": "commonjs/index.js",
     "module": "esm/index.js",
