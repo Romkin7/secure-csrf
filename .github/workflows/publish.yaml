@@ -1,40 +1,55 @@
-# name of the workflow
 name: Build and Publish to NPM
-# When workflow is triggered
+
 on:
-    pull_request:
-        types: ['closed']
-        branches:
-            - main
+  pull_request:
+    types: ['closed']
+    branches:
+      - main
+
 jobs:
-    publish:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18.x]
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    env:
+      CI: true
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build secure-csrf
+        run: npm run build
+
+      - name: Check if package can be published
+        run: npx can-npm-publish --verbose
+        id: publish-check
+
+      - name: Publish package to NPM 📦
+        if: steps.publish-check.outcome == 'success'
+        run: npm run publish
         env:
-            CI: true
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-            GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        steps:
-            # Get code from repo
-            - name: Checkout code
-              uses: actions/checkout@v2
-            # Install NodeJS
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v2
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  registry-url: 'https://registry.npmjs.org'
-            # Run npm install
-            - name: Install dependencies
-              run: npm ci
-            - name: Build secure-csrf
-              run: npm run build
-           # Publish to npm if this version is not published
-            - name: Publish package on NPM 📦
-              run: |
-                  npx can-npm-publish --verbose && npm run publish || echo "Does not publish"
-                  env:
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-           # Push tag to GitHub if package.json version's tag is not tagged
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push tag to GitHub if version is new
+        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+        run: |
+          git config --global user.email "${{ secrets.EMAIL }}"
+          git config --global user.name "${{ secrets.NAME }}"
+          git tag -a v${{ steps.publish-check.outputs.version }} -m "Release ${{ steps.publish-check.outputs.version }}"
+          git push origin v${{ steps.publish-check.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
