@@ -1,3 +1,7 @@
+v1.1.1
+
+New patch release 1.1.1 fixes build output
+
 v1.1.0
 
 New minor version 1.1.0 removes rndm and tsscmp npm package dependencies and updates uid to uuid package.
