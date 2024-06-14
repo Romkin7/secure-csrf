@@ -4,11 +4,10 @@
  * Copyright(c) 2015 Douglas Christopher Wilson
  * MIT Licensed
  */
-
-import rndm from 'rndm';
 import crypto from 'crypto';
 import { uid } from 'uid/secure';
-import compare from 'tsscmp';
+import timeSafeCompare from './lib/tsscmp';
+import rndm from './lib/rndm';
 import ISettings from './@types/settings';
 
 class CSRF {
@@ -86,7 +85,7 @@ class CSRF {
         const salt = token.substr(0, index);
         const expected = this.tokenize(secret, salt);
 
-        return compare(token, expected);
+        return timeSafeCompare(token, expected);
     }
 
     /**

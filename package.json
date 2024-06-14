@@ -5,6 +5,11 @@
     "main": "commonjs/index.js",
     "module": "esm/index.js",
     "types": "esm/index.d.ts",
+    "files": [
+        "CHANGELOG.md",
+        "README.md",
+        "LICENCE"
+    ],
     "scripts": {
         "test": "jest",
         "test:ci": "jest --coverage",
@@ -38,8 +43,6 @@
     },
     "homepage": "https://github.com/Romkin7/express-scrf#readme",
     "dependencies": {
-        "rndm": "^1.2.0",
-        "tsscmp": "^1.0.6",
         "uid": "^2.0.2"
     },
     "devDependencies": {
