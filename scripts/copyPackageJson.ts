@@ -13,4 +13,4 @@ function writePackageJSON(): void {
     writeFileSync(`./dist/package.json`, JSON.stringify(packageJSON));
 }
 
-export default writePackageJSON;
+writePackageJSON();

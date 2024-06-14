@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "downlevelIteration": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "esNext",
+        "declaration": true,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "types": ["node"],
+        "paths": {
+            "*": ["./node_modules/@types/*"]
+        }
+    },
+    "exclude": ["./scripts", "./src/tests"]
+}

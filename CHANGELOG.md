@@ -1,3 +1,9 @@
+v2.0.0
+
+New major release 2.0.0 
+- Removes commonjs and esm output folders
+- Moves commonjs output to root of dist folder
+
 v1.1.4
 
 New patch release 1.1.4 fixes build output
