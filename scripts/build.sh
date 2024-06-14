@@ -11,5 +11,5 @@ npm run add-package-json-files
 echo 'Add readme, changelog and licence'
 cp ./README.md ./dist/
 cp ./CHANGELOG.md ./dist/
-cp '/LICENCE ./dist/
+cp ./LICENCE ./dist/
 echo 'Secure-csrf package build process have been completed successfully!'
