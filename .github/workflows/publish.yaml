@@ -37,4 +37,4 @@ jobs:
                   npx can-npm-publish --verbose && npm run publish || echo "Does not publish"
                   env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-                    
+           # Push tag to GitHub if package.json version's tag is not tagged

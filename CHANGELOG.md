@@ -1,3 +1,7 @@
+v1.1.2
+
+New patch release 1.1.2 fixes build output
+
 v1.1.1
 
 New patch release 1.1.1 fixes build output
