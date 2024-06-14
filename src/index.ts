@@ -5,7 +5,7 @@
  * MIT Licensed
  */
 import crypto from 'crypto';
-import { uid } from 'uid/secure';
+import uid from './lib/uid.secure';
 import timeSafeCompare from './lib/tsscmp';
 import rndm from './lib/rndm';
 import ISettings from './@types/settings';

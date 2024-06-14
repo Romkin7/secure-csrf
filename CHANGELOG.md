@@ -2,10 +2,9 @@ v1.1.0
 
 New minor version 1.1.0 removes rndm and tsscmp npm package dependencies and updates uid to uuid package.
 
-- Removes npm package rndm ---> moves it to be internal updated ts and esm supported version that is built in.
-- Removes npm package tsscmp ---> moves it to be internal updated ts and esm supported version that is built in.
-- Removes uid npm package dependency
-- Adds uuid npm package dependency
+- Removes npm package rndm ---> moves it to be internal updated ts and esm supported version.
+- Removes npm package tsscmp ---> moves it to be internal updated ts and esm supported version.
+- Removes npm package uid ---> moves it's secure method to be internal updated ts and esm supported version.
 
 `secure-csrf` is now possible to use with latest eslint 9.x.
 

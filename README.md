@@ -6,7 +6,9 @@ As of new verison 1.1.0 `secure-csrf` package is now possible to use with latest
 CSRF protection for Node JS Applications.
 Built with TypeScript and ESM.
 
-This package is updated version of [csrf](https://www.npmjs.com/package/csrf) package. It includes types and new [uuid](https://www.npmjs.com/package/uid) package is used to generate `uuid/secure` secret.
+This package is updated version of [csrf](https://www.npmjs.com/package/csrf) package, with no external dependencies.
+
+Package is used to generate `uid/secure` secret.
 
 ## Installation
 

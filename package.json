@@ -42,13 +42,8 @@
         "url": "https://github.com/Romkin7/express-scrf/issues"
     },
     "homepage": "https://github.com/Romkin7/express-scrf#readme",
-    "dependencies": {
-        "uid": "^2.0.2"
-    },
     "devDependencies": {
         "@types/jest": "^29.5.12",
-        "@types/rndm": "^1.2.2",
-        "@types/tsscmp": "^1.0.2",
         "@typescript-eslint/eslint-plugin": "^7.13.0",
         "eslint": "^8.56.0",
         "eslint-plugin-prettier": "^5.1.3",
