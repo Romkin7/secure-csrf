@@ -1,10 +1,15 @@
 {
     "name": "secure-csrf",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "CSRF protection for NodeJS apps",
     "main": "commonjs/index.js",
     "module": "esm/index.js",
     "types": "esm/index.d.ts",
+    "files": [
+        "CHANGELOG.md",
+        "README.md",
+        "LICENCE"
+    ],
     "scripts": {
         "test": "jest",
         "test:ci": "jest --coverage",
@@ -37,15 +42,8 @@
         "url": "https://github.com/Romkin7/express-scrf/issues"
     },
     "homepage": "https://github.com/Romkin7/express-scrf#readme",
-    "dependencies": {
-        "rndm": "^1.2.0",
-        "tsscmp": "^1.0.6",
-        "uid": "^2.0.2"
-    },
     "devDependencies": {
         "@types/jest": "^29.5.12",
-        "@types/rndm": "^1.2.2",
-        "@types/tsscmp": "^1.0.2",
         "@typescript-eslint/eslint-plugin": "^7.13.0",
         "eslint": "^8.56.0",
         "eslint-plugin-prettier": "^5.1.3",
