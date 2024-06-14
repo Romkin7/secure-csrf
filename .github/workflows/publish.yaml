@@ -29,10 +29,7 @@ jobs:
             # Run npm install
             - name: Install dependencies
               run: npm ci
-            # Run unit tests for all packages
-            - name: Run lint
-              run: npm run lint
-            - name: Build eclair-icons
+            - name: Build secure-csrf
               run: npm run build
            # Publish to npm if this version is not published
             - name: Publish package on NPM 📦
@@ -40,17 +37,4 @@ jobs:
                   npx can-npm-publish --verbose && npm run publish || echo "Does not publish"
                   env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-           # Push tag to GitHub if package.json version's tag is not tagged
-            - name: package-version
-              run:
-                  node -p -e
-                  '`PACKAGE_VERSION=${require("./package.json").version}`' >>
-                  $GITHUB_ENV
-            - name: package-version-to-git-tag
-              uses: pkgdeps/git-tag-action@v2
-              with:
-                  github_token: ${{ secrets.PUBLISH_TOKEN }}
-                  github_repo: ${{ github.repository }}
-                  version: ${{ env.PACKAGE_VERSION }}
-                  git_commit_sha: ${{ github.sha }}
-                  git_tag_prefix: 'v'
+                    
