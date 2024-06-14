@@ -1,14 +1,6 @@
-v1.1.3
+v1.1.4
 
-New patch release 1.1.3 fixes build output
-
-v1.1.2
-
-New patch release 1.1.2 fixes build output
-
-v1.1.1
-
-New patch release 1.1.1 fixes build output
+New patch release 1.1.4 fixes build output
 
 v1.1.0
 
