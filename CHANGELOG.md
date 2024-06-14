@@ -1,3 +1,7 @@
+v2.0.1
+
+New patch release 2.0.1 fixes build output
+
 v2.0.0
 
 New major release 2.0.0 
